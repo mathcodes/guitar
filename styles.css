@@ -16,7 +16,7 @@ body
 .fretboard{
   display: flex;
   flex-direction: column;
-  background: •#be975b;
+  background: #be975b;
   width: 100%;
   height: 300px;
   margin-top: 50px;
@@ -33,6 +33,10 @@ body
   content: '';
   width: 100%;
   height: 10px;
-  background: linear-gradient (#eee, #999);
+  /* apply background linear gradeint: */
+  background: linear-gradient(#eee 0%,#999 100%);
   box-shadow: 76px 3px 10px #806233;
+  z-index: 1;
+  position: absolute;
+  top: 22px;
 }
