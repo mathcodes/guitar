@@ -61,7 +61,7 @@ border-image: linear-gradient(to left, #bbb 0%, #fff 50%, #bbb 100%) 1 100%;
  }
 
  .note-fret:before {
-  content: 'C';
+  content: 'Db';
   width: 33px;
   height: 33px;
   border-radius: 50%;
@@ -70,5 +70,39 @@ border-image: linear-gradient(to left, #bbb 0%, #fff 50%, #bbb 100%) 1 100%;
   background: #d35400;
   z-index: 4;
   color: white;
+  opacity: 0.2;
  }
 
+.single-fretmark:after{
+  content: '';
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #444;
+  top: 150px;
+  transform: translateY(-50%);
+}
+
+
+.double-fretmark:before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #806233;
+  top: 58px;
+  transform: translate(-140%, 50%) ;
+}
+
+.double-fretmark:after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #806233;
+  top: 208px;
+  transform: translate(-140%, 50%);
+}
