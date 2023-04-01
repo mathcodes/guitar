@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,400');
 
 :root {
-  --fretboard-height: 350;
+  --fretboard-height: 400;
   --number-of-strings: 4;
   --string-height: 10;
   --half-string-height: calc(var(--string-height) / 2) ;
@@ -11,15 +11,13 @@
 }
 
 
-*
-{
+*{
   margin: 0;
   padding: 0;
 }
 
 
-body
-{
+body{
   background: #353535;
   font-family: Lato, sans-serif;
 }
@@ -40,13 +38,10 @@ body
   position: relative;
 }
 
-
-
-
 .string:before{
   content: '';
   width: 100%;
-  height: 10px;
+  height: calc(var(--string-height) * 1px);
   /* apply background linear gradeint: */
   background: linear-gradient(#eee 0%,#999 100%);
   box-shadow: 76px 3px 10px #806233;
@@ -65,6 +60,7 @@ body
   position: relative;
 }
 
+/* selects every note-fret element that is the first child of its parent */
 .note-fret:first-child{
 background: #161717;
 min-width: 76px;
@@ -74,6 +70,9 @@ flex-shrink: 0;
 border-image: linear-gradient(to left, #bbb 0%, #fff 50%, #bbb 100%) 1 100%;
  }
 
+ /*
+ Insert something before the content of each <note-fret> element
+ */
  .note-fret:before {
   content: 'Db';
   width: 33px;
@@ -84,9 +83,12 @@ border-image: linear-gradient(to left, #bbb 0%, #fff 50%, #bbb 100%) 1 100%;
   background: #d35400;
   z-index: 4;
   color: white;
-  opacity: 0.2;
+  opacity: 0.1
+  ;
  }
 
+ /* Since we already used :before on this node, we need to use after */
+ /* Insert something after the content of each <single-fretmark> element */
 .single-fretmark:after{
   content: '';
   position: absolute;
@@ -94,8 +96,9 @@ border-image: linear-gradient(to left, #bbb 0%, #fff 50%, #bbb 100%) 1 100%;
   width: 20px;
   border-radius: 50%;
   background: #444;
-  top: calc(var(--fretboard-height)/2 * 1px);
-  transform: translateY(-50%);
+
+  top: calc(var(--fretboard-height) / 2 * 1px);
+  transform: translate(0, -50%);
 }
 
 
