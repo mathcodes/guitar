@@ -40,3 +40,35 @@ body
   position: absolute;
   top: 22px;
 }
+
+.note-fret {
+  display: flex;
+  flex: 1;
+  border-right: 10px solid ;
+  border-image: linear-gradient(to left, #777 0%, #bbb 50%, #777 100%) 1 100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.note-fret:first-child{
+background: #161717;
+min-width: 76px;
+border-right: 12px solid;
+flex-grow: 0;
+flex-shrink: 0;
+border-image: linear-gradient(to left, #bbb 0%, #fff 50%, #bbb 100%) 1 100%;
+ }
+
+ .note-fret:before {
+  content: 'C';
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  line-height: 33px;
+  text-align: center;
+  background: #d35400;
+  z-index: 4;
+  color: white;
+ }
+
