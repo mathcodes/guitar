@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,400');
 
+:root {
+  --fretboard-height: 350;
+  --number-of-strings: 4;
+  --string-height: 10;
+  --half-string-height: calc(var(--string-height) / 2) ;
+  --string-top-position: calc(var(--fretboard-height) / var(--number-of-strings) / 2 - var(--half-string-height))|;
+  --double-fretmark-position-1: calc(var(--fretboard-height) * 0.25) ;
+  --double-fretmark-position-2: calc(var(--fretboard-height) * 0.75) ;
+}
+
+
 *
 {
   margin: 0;
@@ -18,8 +29,8 @@ body
   flex-direction: column;
   background: #be975b;
   width: 100%;
-  height: 300px;
-  margin-top: 50px;
+  height: calc(var(--fretboard-height) * 1px);
+    margin-top: 50px;
 }
 
 .string{
@@ -28,6 +39,9 @@ body
   display: flex;
   position: relative;
 }
+
+
+
 
 .string:before{
   content: '';
@@ -80,7 +94,7 @@ border-image: linear-gradient(to left, #bbb 0%, #fff 50%, #bbb 100%) 1 100%;
   width: 20px;
   border-radius: 50%;
   background: #444;
-  top: 150px;
+  top: calc(var(--fretboard-height)/2 * 1px);
   transform: translateY(-50%);
 }
 
@@ -92,8 +106,8 @@ border-image: linear-gradient(to left, #bbb 0%, #fff 50%, #bbb 100%) 1 100%;
   height: 20px;
   border-radius: 50%;
   background: #806233;
-  top: 58px;
-  transform: translate(-140%, 50%) ;
+  top: calc(var(--double-fretmark-position-1) * 1px);
+  transform: translate(-140%, -50%) ;
 }
 
 .double-fretmark:after {
@@ -103,6 +117,6 @@ border-image: linear-gradient(to left, #bbb 0%, #fff 50%, #bbb 100%) 1 100%;
   height: 20px;
   border-radius: 50%;
   background: #806233;
-  top: 208px;
-  transform: translate(-140%, 50%);
+  top: calc(var(--double-fretmark-position-2) * 1px);
+  transform: translate(-140%, -50%);
 }
