@@ -1,8 +1,9 @@
 const root = document.documentElement;
 
 const fretboard = document.querySelector('.fretboard');
+const selectInstrumentSelector = document.querySelector('#instrument-selector');
 const numberOfFrets = 24;
-const numberOfStrings = 6;
+// const numberOfStrings = 6;
 
 const singleFretMarkPositions= [3, 5, 7, 9, 15, 17, 19, 21]
 const doubleFretMarkPositions = [12, 24]
@@ -10,16 +11,33 @@ const doubleFretMarkPositions = [12, 24]
 const notesFlat = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
 const notesSharp = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
 
-let accidentals = 'flats'
+let accidentals = 'sharps'
 const guitarTuning = [4, 7, 11, 2, 9, 4]
+
+const instrumentTuningPresets = {
+  'Guitar': [4, 11, 7, 2, 9, 4],
+  'Bass': [7, 2, 9, 4],
+  'Ukulele': [9, 4, 0, 7],
+  'Violin': [11, 4, 9, 2],
+  'Cello': [2, 9, 4, 11],
+  'Mandolin': [7, 2, 10, 5],
+  'Sitar': [7, 2, 9, 4, 11, 4],
+}
+
+let selectedInstrument = 'Guitar';
+
+let numberOfStrings = instrumentTuningPresets[selectedInstrument].length;
 
 const app = {
   // initialize something so make first method init()
   init() {
     this.setupFretboard();
+    this.setupEventListeners();
+    this.setupSelectInstrumentSelector();
     console.log('app initialized');
   },
   setupFretboard() {
+    fretboard.innerHTML = '';
     root.style.setProperty('--number-of-strings', numberOfStrings);
     //Add strings to fretboard by looping through the number of strings
     for (let i = 0; i < numberOfStrings; i++) {
@@ -62,8 +80,36 @@ const app = {
       noteName = notesSharp[noteIndex];
     }
     return noteName
+},
+
+// new method
+setupSelectInstrumentSelector () {
+  // here we set the content of the option element to the instrument name
+  for ( instrument in instrumentTuningPresets) {
+    let instrOption = tools.createElement('option', instrument);
+    selectInstrumentSelector.appendChild(instrOption);
+  }
+},
+setupEventListeners() {
+  fretboard.addEventListener('mouseover', (event) => {
+    if (event.target.classList.contains('note-fret')) {
+      event.target.style.setProperty('--noteDotOpacity', 1);
+    }
+
+  });
+  fretboard.addEventListener('mouseout', (event) => {
+    event.target.style.setProperty('--noteDotOpacity', 0);
+  });
+  selectInstrumentSelector.addEventListener('change', (event) => {
+    selectedInstrument = event.target.value;
+    numberOfStrings = instrumentTuningPresets[selectedInstrument].length;
+    fretboard.innerHTML = '';
+    this.setupFretboard();
+  })
 }
 }
+
+
 
 
 // Every time we want to create an element, we call this method
@@ -78,3 +124,4 @@ const tools = {
 }
 
 app.init();
+

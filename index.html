@@ -1,19 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Guitar</title>
+  <title>Tailwind Responsive Grid Example</title>
+  <!-- Tailwind CSS CDN -->
+  <link href="https://unpkg.com/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
 </head>
+<body class="bg-gray-100">
 
-<body>
-  <div class="fretboard">
+  <div class="container mx-auto py-8">
+    <h1 class="text-4xl font-bold text-gray-800 mb-8">Audio Kits</h1>
 
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+      <a href="./guitar.html">
+        <div class="bg-white shadow rounded-lg p-4">
+          <h2 class="text-xl font-bold text-gray-800 mb-2">Guitar Neck</h2>
+          <p class="text-gray-600">
+            This is a guitar neck with 6 strings. The strings are tuned to E, A, D, G, B, E. You can also choose other instruments!
+          </p>
+        </div>
+      </a>
+      <a href="./metronome.html">
+      <div class="bg-white shadow rounded-lg p-4">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">Metronome</h2>
+        <p class="text-gray-600">
+          This is a metronome. It can be used to keep time while playing an instrument. It can also be used to practice your rhythm.
+        </p>
+      </div>
+      </a>
+      <a href="./drums.html">
+      <div class="bg-white shadow rounded-lg p-4">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">Drum Kit</h2>
+        <p class="text-gray-600">
+        This kit has 6 different sounds. You can play them by clicking on the icons. You can also use the keyboard to play the sounds.
+        </p>
+      </div>
+      </a>
+      <div class="bg-white shadow rounded-lg p-4">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">Card 4</h2>
+        <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate magna a felis bibendum laoreet. </p>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">Card 5</h2>
+        <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate magna a felis bibendum laoreet. </p>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">Card 6</h2>
+        <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate magna a felis bibendum laoreet. </p>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">Card 7</h2>
+        <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate magna a felis bibendum laoreet. </p>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4
+      <div class="bg-white shadow rounded-lg p-4">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">Card 8</h2>
+        <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate magna a felis bibendum laoreet. </p>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">Card 9</h2>
+        <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate magna a felis bibendum laoreet. </p>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">Card 10</h2>
+        <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate magna a felis bibendum laoreet. </p>
+      </div>
+    </div>
   </div>
-  <script src="app.js"></script>
 </body>
-
 </html>

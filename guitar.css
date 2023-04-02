@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400');
+
+.container
+{
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+:root
+{
+  --fretboard-height: 300;
+  --number-of-strings: 4;
+  --string-height: 10;
+  --half-string-height: calc(var(--string-height) / 2);
+  --string-top-position: calc(var(--fretboard-height) / var(--number-of-strings) / 2 - var(--half-string-height))|;
+  --double-fretmark-position-1: calc(var(--fretboard-height) * 0.50);
+  --double-fretmark-position-2: calc(var(--fretboard-height) * 0.50);
+  --noteDotOpacity: 0;
+}
+
+
+*
+{
+  margin: 0;
+  padding: 0;
+}
+
+
+body
+{
+  background: #353535;
+  font-family: Lato, sans-serif;
+}
+
+.settings
+{
+  display: flex;
+  color: white;
+  padding: 20px;
+  border-bottom: 1px solid #D35400;
+  background: #282828;
+  height: 50px;
+}
+
+.fretboard
+{
+  display: flex;
+  flex-direction: column;
+  background: #545050;
+  width: 100%;
+  height: calc(var(--fretboard-height) * 1px);
+  margin-top: 50px;
+}
+
+.string
+{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+.string:before
+{
+  content: '';
+  width: 100%;
+  height: calc(var(--string-height) * 1px);
+  /* apply background linear gradeint: */
+  background: linear-gradient(#eee 0%, #999 100%);
+  box-shadow: 76px 3px 10px #806233;
+  z-index: 1;
+  position: absolute;
+  top: 22px;
+}
+
+body > div.fretboard > .string:nth-child(1){
+  --string-height: 2.17;
+}
+body > div.fretboard > .string:nth-child(2){
+  --string-height: 2.83;
+}
+body > div.fretboard > .string:nth-child(3){
+  --string-height: 3.70;
+}
+body > div.fretboard > .string:nth-child(4){
+  --string-height: 5.65;
+}
+body > div.fretboard > .string:nth-child(5){
+  --string-height: 7.83;
+}
+body > div.fretboard > .string:nth-child(6){
+  --string-height: 10;
+}
+
+
+.note-fret
+{
+  display: flex;
+  flex: 1;
+  border-right: 10px solid;
+  border-image: linear-gradient(to left, #777 0%, #bbb 50%, #777 100%) 1 100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* selects every note-fret element that is the first child of its parent */
+.note-fret:first-child
+{
+  background: #161717;
+  min-width: 76px;
+  border-right: 12px solid;
+  flex-grow: 0;
+  flex-shrink: 0;
+  border-image: linear-gradient(to left, #320303 0%, #50301b 50%, #bbb 100%) 1 100%;
+}
+
+/*
+ Insert something before the content of each <note-fret> element
+ */
+.note-fret:before
+{
+  content: attr(data-note);
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  line-height: 33px;
+  text-align: center;
+  background: #d35400;
+  z-index: 4;
+  color: white;
+  opacity: var(--noteDotOpacity);
+  ;
+}
+
+.hovered
+{
+  --noteDotOpacity: 1;
+}
+
+/* Since we already used :before on this node, we need to use after */
+/* Insert something after the content of each <single-fretmark> element */
+.single-fretmark:after
+{
+  content: '';
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background: #999;
+
+  top: calc(var(--fretboard-height) / 2 * 1px);
+  transform: translate(0, -50%);
+}
+
+
+.double-fretmark:before
+{
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 30px;
+  border-radius: 50%;
+  background: #dfdfdf;
+  top: calc(var(--double-fretmark-position-1) * 1px);
+  transform: translate(-200%, -50%);
+}
+
+
+body,
+html {
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background-image: linear-gradient(#862077, #140027);
+}
+
+.instrument-selector-label {
+  font-size: 20px;
+  color: white;
+  margin: 10px;
+}
+#instrument-selector{
+  background-image: linear-gradient(#862077, #140027);
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}

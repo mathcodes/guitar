@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background: #1a1a1a;
+    color: #fd5532;
+    user-select: none;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.metronome {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 250px;
+    justify-content: space-between;
+}
+.bpm-display {
+    width: 100%;
+    text-align: center;
+    color: #61dafb;
+    font-weight: bold;
+}
+.bpm-display .tempo {
+    font-size: 4em;
+}
+.tempo-text {
+    font-size: 1em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.tempo-settings {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tempo-settings .adjust-tempo-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 3em;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    text-align: center;
+    cursor: pointer;
+}
+.tempo-settings .adjust-tempo-btn:hover {
+    background: #61dafb;
+    color: #fff;
+}
+.tempo-settings .decrease-tempo {
+    line-height: 25px;
+}
+.tempo-settings .increase-tempo {
+    line-height: 32px;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    background-color: transparent;
+    width: 70%;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #61dafb;
+    cursor: pointer;
+    margin-top: -8px;
+}
+input[type=range]::-moz-range-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #61dafb;
+    cursor: pointer;
+    border: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 1px;
+    background: #ddd;
+}
+
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 1px;
+    background: #ddd;
+}
+
+.start-stop {
+    width: 50px;
+    height: 50px;
+    font-size: 0.7em;
+    text-align: center;
+    background: #61dafb;
+    border-radius: 50%;
+    color: #000;
+    line-height: 50px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.start-stop:hover {
+    background: #fd5532;
+}
+.measures {
+    display: flex;
+    justify-content: center;
+}
+.measures .stepper {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    text-align: center;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.measures .stepper:hover {
+    background: #ff656c;
+    color: #fff;
+}
+.measures .add-beats {
+    line-height: 20px;
+}
+
+.beats-per-measure-text {
+    text-align: center;
+    font-size: 0.5em;
+    text-transform: uppercase;
+}
+.beat-count{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: #61dafb;
+
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+.beat-circle-top{
+    background: #fd5532;
+    transition: all 0.2s ease;
+    height: 50px;
+    width: 50px;
+}
+
+.beat-circle-bottom{
+    background: #61dafb;
+    transition: all 0.2s ease;
+    height: 30px;
+    width: 30px;
+}
